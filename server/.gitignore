@@ -1,0 +1,34 @@
+# App
+config/development.ts
+node_modules/
+dist/*
+!dist/.gitkeep
+
+# Dev
+.gitconfig
+coverage/
+tmp/
+log/
+coverage/
+config/environments/development.ts
+
+# Artifcats
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.pid
+.idea/
+.vscode/
+log/
+*.log
+.vagrant/
+.nyc_output/
+
+# IDE files
+.idea/
+.vscode/
+

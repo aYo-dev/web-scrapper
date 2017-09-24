@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "pretty": true,
+    "module": "commonjs",
+    "outDir": "./dist/",
+    "target": "es6",
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "lib": [
+      "es2015",
+      "dom"
+    ],
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": [
+    "config/**/*.ts",
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "tmp",
+    "log",
+    "doc"
+  ]
+}
