@@ -20,7 +20,7 @@ export const dbConfig = {
     tableName: MIGRATIONS_TABLE
   },
   seeds: {
-    directory: '../seeds',
+    directory: './seeds',
   }
 };
 

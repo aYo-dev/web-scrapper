@@ -2,10 +2,10 @@ import * as core from 'express-serve-static-core';
 import * as domainService from '../services/domainService';
 
 export const create = async (req: core.Request, res: core.Response) => {
-  const todo = req.body.data;
+  const data = req.body.data;
 
   try {
-    res.json(await domainService.create(todo));
+    res.json(await domainService.create(data));
     return;
   } catch (e) {
     throw e;
