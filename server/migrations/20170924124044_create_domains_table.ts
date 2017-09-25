@@ -7,14 +7,11 @@ exports.up = (knex: Knex)  => knex.raw(`
       guid uuid DEFAULT uuid_generate_v4() UNIQUE,
       ts TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
       domain varchar NOT NULL UNIQUE,
-      selector varchar NOT NULL,
-      method varchar NOT NULL,
-      rules jsonb
+      method varchar NOT NULL
     );
 
-    CREATE INDEX id_idx ON ${DOMAINS_TABLE} (guid);
-    CREATE INDEX ts_idx ON ${DOMAINS_TABLE} (ts);
-    CREATE INDEX domain_idx ON ${DOMAINS_TABLE} (domain);
+    CREATE INDEX domains_guid_idx ON ${DOMAINS_TABLE} (guid);
+    CREATE INDEX domains_domain_idx ON ${DOMAINS_TABLE} (domain);
 `);
 
 exports.down = (knex: Knex) => knex.raw(`
