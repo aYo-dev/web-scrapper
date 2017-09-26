@@ -1,0 +1,89 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    {{title}}!
+  </h1>
+
+  <div [hidden]="submitted">
+    <h1>Hero Form</h1>
+    <form (ngSubmit)="onSubmit()" #domainForm="ngForm">
+      <div class="form-group">
+        <label for="domain">Domain</label>
+        <input type="text" class="form-control" id="domain"
+               required
+               [(ngModel)]="model.domain" name="domain"
+               #domain="ngModel">
+        <div [hidden]="domain.valid || domain.pristine"
+             class="alert alert-danger">
+          Domain is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="method">Method</label>
+        <select class="form-control" id="method"
+                required
+                [(ngModel)]="model.method" name="method"
+                #method="ngModel">
+          <option *ngFor="let met of methods" [value]="met">{{met}}</option>
+        </select>
+        <div [hidden]="method.valid || method.pristine" class="alert alert-danger">
+          Method is required
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success" (click)="addField()">Add field</button>
+
+      <div class="meta-wrapper" *ngFor="let meta of model.meta; let i = index" >
+        <div class="form-group">
+          <label for="selector">Selector</label>
+          <input type="text" class="form-control" id="selector"
+                  required
+                [(ngModel)]="model.meta[i].selector" name="selector"
+                #selector="ngModel">
+        </div>
+
+        <div class="form-group">
+          <label for="rule">Rule</label>
+          <select class="form-control" id="rule"
+                required
+                [(ngModel)]="model.meta[i].rule.name" name="rule"
+                #ruleName="ngModel">
+            <option *ngFor="let rul of rules" [value]="rul">{{rul}}</option>
+          </select>
+        </div>
+
+        <div class="form-group" [hidden]="model.meta[i].rule.name !== 'templateString'">
+          <label for="selector">String Template</label>
+          <input type="text" class="form-control" id="selector"
+                  required
+                [(ngModel)]="model.meta[i].rule.template" name="selector"
+                #ruleTemplate="ngModel">
+        </div>
+      </div>
+
+
+
+      <button type="submit" class="btn btn-success" [disabled]="!domainForm.form.valid">Submit</button>
+      <button type="button" class="btn btn-default" (click)="newHero(); domainForm.reset()">New Hero</button>
+    </form>
+  </div>
+
+  <div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+      <div class="col-xs-3">Domain</div>
+      <div class="col-xs-9  pull-left">{{ model.domain }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Alter Ego</div>
+      <div class="col-xs-9 pull-left">{{ model.selector }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">method</div>
+      <div class="col-xs-9 pull-left">{{ model.method }}</div>
+    </div>
+    <br>
+    <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+  </div>
+</div>
