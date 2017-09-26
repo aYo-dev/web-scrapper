@@ -1,10 +1,9 @@
-# Weather Radar
-Web scraper application
+# Web Scraper
 
 ## Getting Started
 
 ```shell
-git clone git@github.com:aYo-dev/weather-radar.git
+git clone git@github.com:aYo-dev/web-scrapper.git
 cd web-scrapper
 ```
 
@@ -112,7 +111,7 @@ response:
 
 ## Client
 
-Go to server directory
+Go to client directory
 
 ```shell
 cd client
