@@ -12,6 +12,7 @@ cd web-scrapper
 ### Dependencies
 
 PostgreSql - 9.5.8 or above
+<br />
 Node.js 6.6.0 or above
 
 ### Development
